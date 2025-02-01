@@ -50,16 +50,28 @@
   <section id="games" class="games">
     <h2>Mini-Games</h2>
     <div class="game">
-      <h3>Relaxation Game</h3>
-      <p>Play a quick game to improve your mood.</p>
-      <button id="playGame">Play Now</button>
+      <h3>Relaxation Games</h3>
+      <p>Play quick games to improve your mood and reduce stress.</p>
+      <button id="playGame" class="btn">Play Now</button>
     </div>
 
+    <!-- Game cards will be hidden by default -->
     <div class="game-card breathing-exercise">
       <h3>Breathing Exercise</h3>
       <div class="breathing-container">
-        <div class="circle"></div>
-        <p id="breathingText">Breathe In...</p>
+        <div class="circle-container">
+          <div class="circle"></div>
+          <p id="breathingText">Get Ready...</p>
+        </div>
+        <div class="breathing-controls">
+          <button class="btn session-btn" data-duration="2">2 Min</button>
+          <button class="btn session-btn" data-duration="5">5 Min</button>
+          <button class="btn session-btn" data-duration="10">10 Min</button>
+          <button class="btn sound-toggle">🔊 Sound</button>
+        </div>
+        <div class="progress-bar">
+          <div class="progress"></div>
+        </div>
       </div>
     </div>
 
@@ -73,9 +85,9 @@
       <div class="timer-container">
         <div class="timer-display">5:00</div>
         <div class="timer-controls">
-          <button onclick="meditationTimer.start(5)">5 Min</button>
-          <button onclick="meditationTimer.start(10)">10 Min</button>
-          <button onclick="meditationTimer.stop()">Stop</button>
+          <button class="btn timer-btn" data-minutes="5">5 Min</button>
+          <button class="btn timer-btn" data-minutes="10">10 Min</button>
+          <button class="btn stop-timer">Stop</button>
         </div>
       </div>
     </div>
