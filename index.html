@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CycleEase</title>
   <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
   <!-- Header -->
@@ -23,10 +24,11 @@
 
   <!-- hero section -->
   <section class="hero">
-    <video id="heroVideo" autoplay muted loop>
-      <source src="C:\Users\johns\Downloads\istockphoto-2157100041-640_adpp_is.mp4" type="video/mp4">
+    <video id="heroVideo" autoplay muted loop playsinline>
+      <source src="./videos/girl_video.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
+    <div class="hero-overlay"></div>
     <div class="hero-content">
       <h1>Your Menstrual Health Companion</h1>
       <p>Track your cycle, play mood-boosting games, and connect with a supportive community.</p>
@@ -52,28 +54,32 @@
       <p>Play a quick game to improve your mood.</p>
       <button id="playGame">Play Now</button>
     </div>
-  
-    <!-- Breathing Exercise Game -->
-    <section id="games" class="games">
-    <h2>Mini-Games</h2>
-    <div class="game">
-      <h3>Relaxation Game</h3>
-      <p>Play a quick game to improve your mood.</p>
-      <button id="playGame">Play Now</button>
-    </div>
-  
-    <!-- Breathing Exercise Game -->
-    <div class="game" id="breathingGame" style="display: none;">
+
+    <div class="game-card breathing-exercise">
       <h3>Breathing Exercise</h3>
       <div class="breathing-container">
         <div class="circle"></div>
-        <p id="breathingText">Breathe In</p>
+        <p id="breathingText">Breathe In...</p>
       </div>
-      <button id="stopGame">Stop</button>
+    </div>
+
+    <div class="game-card memory-game-container">
+      <h3>Memory Game</h3>
+      <div class="memory-game"></div>
+    </div>
+
+    <div class="game-card meditation-timer">
+      <h3>Meditation Timer</h3>
+      <div class="timer-container">
+        <div class="timer-display">5:00</div>
+        <div class="timer-controls">
+          <button onclick="meditationTimer.start(5)">5 Min</button>
+          <button onclick="meditationTimer.start(10)">10 Min</button>
+          <button onclick="meditationTimer.stop()">Stop</button>
+        </div>
+      </div>
     </div>
   </section>
-  
-  
 
   <!-- Tips Section -->
   <section id="tips" class="tips">

@@ -1,55 +1,97 @@
+:root {
+  --primary-color: #FFCDB2;
+  --secondary-color: #FFB4A2;
+  --accent-color: #E5989B;
+  --dark-accent: #B5838D;
+  --text-dark: #6D6875;
+  --text-light: white;
+  --shadow: 0 10px 20px rgba(109, 104, 117, 0.1);
+  --gradient: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+}
+
 /* General Styles */
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Poppins', sans-serif;
   margin: 0;
   padding: 0;
   line-height: 1.6;
-  color: #333;
+  color: var(--text-dark);
+  background-color: #FFF5F5;
 }
 
+/* Navigation Styles */
 header {
-  background: #ff6f61;
-  color: white;
-  padding: 1rem 0;
-  text-align: center;
+  background: rgba(255, 255, 255, 0.95);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  box-shadow: var(--shadow);
+  transition: all 0.3s ease;
 }
 
 header .logo {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   font-weight: bold;
+  color: var(--dark-accent);
+  padding: 0.5rem 2rem;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
 }
 
 nav ul {
-  list-style: none;
-  padding: 0;
+  display: flex;
+  gap: 2rem;
+  align-items: center;
 }
 
 nav ul li {
-  display: inline;
-  margin: 0 10px;
+  list-style: none;
 }
 
 nav ul li a {
-  color: white;
+  color: var(--text-dark);
   text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: var(--accent-color);
 }
 
 .btn {
-  background: #333;
-  color: white;
-  padding: 0.5rem 1rem;
-  border-radius: 5px;
+  background: var(--accent-color);
+  color: var(--text-light);
+  padding: 0.8rem 1.5rem;
+  border-radius: 25px;
   text-decoration: none;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
 }
 
-/* Hero Section with Background Video */
+.btn:hover {
+  background: var(--dark-accent);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+}
+
+/* Hero Section */
 .hero {
-  position: relative;
   height: 100vh;
+  position: relative;
   display: flex;
-  justify-content: center;
   align-items: center;
-  overflow: hidden;
+  justify-content: center;
+  padding-top: 80px;
+  overflow: hidden; /* Prevent video overflow */
 }
 
 #heroVideo {
@@ -62,51 +104,94 @@ nav ul li a {
   z-index: -1;
 }
 
+/* Make overlay slightly darker for better text visibility */
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4); /* Darker overlay */
+  z-index: 0;
+}
+
 .hero-content {
-  text-align: center;
-  color: rgb(199, 16, 16);
+  position: relative;
   z-index: 1;
+  text-align: center;
+  color: var(--text-light); /* Changed to light text */
+  max-width: 800px;
+  padding: 2rem;
+  /* Remove background and box shadow */
+  background: none;
+  border-radius: 20px;
 }
 
 .hero-content h1 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
+  font-size: 4rem; /* Made larger */
+  margin-bottom: 1.5rem;
+  color: var(--text-light); /* Changed to light text */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Added shadow for better readability */
 }
 
 .hero-content p {
-  font-size: 1.2rem;
+  font-size: 1.4rem; /* Made larger */
   margin-bottom: 2rem;
+  color: var(--text-light); /* Changed to light text */
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); /* Added shadow for better readability */
 }
 
-section {
+/* Game Cards */
+.games-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
   padding: 2rem;
-  text-align: center;
+  margin-top: 2rem;
 }
 
-section h2 {
-  font-size: 2rem;
+.game-card {
+  background: white;
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: var(--shadow);
+  transition: transform 0.3s ease;
+  border: 1px solid rgba(181, 131, 141, 0.1);
+}
+
+.game-card:hover {
+  transform: translateY(-5px);
+}
+
+.game-card h3 {
+  color: var(--dark-accent);
+  font-size: 1.5rem;
   margin-bottom: 1rem;
 }
 
-.dashboard, .games, .tips, .community {
-  background: #fff;
-  margin: 1rem 0;
-  padding: 1rem;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+/* Sections */
+section {
+  padding: 5rem 2rem;
 }
 
-footer {
-  background: #333;
-  color: white;
+section h2 {
   text-align: center;
-  padding: 1rem 0;
-  margin-top: 2rem;
+  color: var(--dark-accent);
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+}
+
+/* Footer */
+footer {
+  background: var(--dark-accent);
+  color: var(--text-light);
+  padding: 3rem 2rem;
+  text-align: center;
 }
 
 /* Mini-Games Section with Background Image */
 .games {
-  background: url('path-to-your-image.jpg') no-repeat center center/cover;
+  background: url('assets/images/games-background.jpg') no-repeat center center/cover;
   color: white;
   padding: 2rem;
   border-radius: 10px;
@@ -134,20 +219,22 @@ footer {
   position: relative;
 }
 
-/* Breathing Exercise Styling */
+/* Breathing Exercise Enhancement */
 .breathing-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin: 20px 0;
+  background: var(--gradient);
+  padding: 3rem;
+  border-radius: 20px;
+  margin: 2rem auto;
+  max-width: 600px;
 }
 
 .circle {
-  width: 150px;
-  height: 150px;
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
-  background: rgba(255, 111, 97, 0.8);
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+  will-change: transform;
   animation: breathe 8s infinite;
 }
 
@@ -165,16 +252,107 @@ footer {
   color: white;
 }
 
-/* Button Styling */
-button {
-  background: #333;
-  color: white;
-  padding: 0.5rem 1rem;
-  border-radius: 5px;
-  border: none;
-  cursor: pointer;
+/* Memory Game Styling */
+.memory-game {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  max-width: 800px;
+  margin: 2rem auto;
 }
 
-button:hover {
-  background: #555;
+.memory-card {
+  aspect-ratio: 1;
+  background: var(--gradient);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.memory-card.flipped {
+  transform: rotateY(180deg);
+}
+
+/* Meditation Timer */
+.timer-container {
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: var(--shadow);
+  max-width: 400px;
+  margin: 2rem auto;
+}
+
+.timer-display {
+  font-size: 3rem;
+  font-weight: bold;
+  color: var(--primary-color);
+  margin: 1rem 0;
+}
+
+.timer-controls {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+/* Update button styling for better visibility */
+.hero-content .btn {
+  background: var(--accent-color);
+  color: var(--text-light);
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  border-radius: 30px;
+  border: 2px solid var(--text-light);
+  transition: all 0.3s ease;
+}
+
+.hero-content .btn:hover {
+  background: var(--text-light);
+  color: var(--accent-color);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Add responsive styles for smaller screens */
+@media screen and (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    text-align: center;
+  }
+
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+  
+  .hero-content p {
+    font-size: 1.1rem;
+  }
+
+  .hero {
+    height: 80vh;
+  }
+
+  .circle {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  nav ul li {
+    display: block;
+    margin: 10px 0;
+  }
+
+  section {
+    padding: 1rem;
+  }
 }
