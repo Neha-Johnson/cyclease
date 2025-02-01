@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CycleEase</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="logo">CycleEase</div>
+    <nav>
+      <ul>
+        <li><a href="#dashboard">Dashboard</a></li>
+        <li><a href="#games">Mini-Games</a></li>
+        <li><a href="#tips">Tips</a></li>
+        <li><a href="#community">Community</a></li>
+        <li><a href="#signup" class="btn">Sign Up</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- hero section -->
+  <section class="hero">
+    <video id="heroVideo" autoplay muted loop>
+      <source src="C:\Users\johns\Downloads\istockphoto-2157100041-640_adpp_is.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <div class="hero-content">
+      <h1>Your Menstrual Health Companion</h1>
+      <p>Track your cycle, play mood-boosting games, and connect with a supportive community.</p>
+      <button id="getStarted" class="btn">Get Started</button>
+    </div>
+  </section>
+
+  <!-- Dashboard Section -->
+  <section id="dashboard" class="dashboard">
+    <h2>Dashboard</h2>
+    <div class="cycle-tracker">
+      <h3>Cycle Tracker</h3>
+      <p>Log your symptoms and track your cycle.</p>
+      <button id="logSymptoms">Log Symptoms</button>
+    </div>
+  </section>
+
+  <!-- Mini-Games Section -->
+  <section id="games" class="games">
+    <h2>Mini-Games</h2>
+    <div class="game">
+      <h3>Relaxation Game</h3>
+      <p>Play a quick game to improve your mood.</p>
+      <button id="playGame">Play Now</button>
+    </div>
+  
+    <!-- Breathing Exercise Game -->
+    <section id="games" class="games">
+    <h2>Mini-Games</h2>
+    <div class="game">
+      <h3>Relaxation Game</h3>
+      <p>Play a quick game to improve your mood.</p>
+      <button id="playGame">Play Now</button>
+    </div>
+  
+    <!-- Breathing Exercise Game -->
+    <div class="game" id="breathingGame" style="display: none;">
+      <h3>Breathing Exercise</h3>
+      <div class="breathing-container">
+        <div class="circle"></div>
+        <p id="breathingText">Breathe In</p>
+      </div>
+      <button id="stopGame">Stop</button>
+    </div>
+  </section>
+  
+  
+
+  <!-- Tips Section -->
+  <section id="tips" class="tips">
+    <h2>Tips for Cramps & PMS</h2>
+    <div class="tip">
+      <h3>Stay Hydrated</h3>
+      <p>Drink plenty of water to reduce bloating.</p>
+    </div>
+  </section>
+
+  <!-- Community Section -->
+  <section id="community" class="community">
+    <h2>Community</h2>
+    <p>Connect with others and share your experiences.</p>
+    <button id="joinCommunity">Join the Community</button>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2023 CycleEase. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
