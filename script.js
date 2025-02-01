@@ -54,7 +54,8 @@ document.getElementById('logSymptoms').addEventListener('click', () => {
 
       // Initialize games
       const breathing = new BreathingExercise();
-      breathing.start(5); // Start with 5 minutes by default
+      breathing.start(5);
+      const memoryGame = new MemoryGame();
     });
 
     // Back button click handler
@@ -246,57 +247,145 @@ document.getElementById('logSymptoms').addEventListener('click', () => {
       this.cards = [];
       this.flippedCards = [];
       this.matchedPairs = 0;
+      this.isLocked = false;
+      this.symbols = ['💖', '🌸', '🍫', '🧘', '☕', '🫖', '🌿', '🎭'];
       this.setupGame();
     }
 
     setupGame() {
-      const config = {
-        emojis: ['🌟', '🎨', '🎭', '🎮', '🎲', '🎯', '🎪', '🎨']
-      };
-      validateGameConfig(config);
-      
-      const gameGrid = [...config.emojis, ...config.emojis].sort(() => Math.random() - 0.5);
-      
       const gameContainer = document.querySelector('.memory-game');
-      gameGrid.forEach((emoji, index) => {
-        const card = document.createElement('div');
-        card.classList.add('memory-card');
-        card.dataset.value = emoji;
-        card.addEventListener('click', () => this.flipCard(card));
+      if (!gameContainer) return;
+
+      // Clear previous game
+      gameContainer.innerHTML = '';
+      this.cards = [];
+      this.flippedCards = [];
+      this.matchedPairs = 0;
+      this.isLocked = false;
+
+      // Create pairs of cards and shuffle them
+      const cardPairs = [...this.symbols, ...this.symbols];
+      this.shuffleArray(cardPairs);
+
+      // Create and render cards
+      cardPairs.forEach((symbol, index) => {
+        const card = this.createCard(symbol, index);
+        this.cards.push(card);
         gameContainer.appendChild(card);
+      });
+
+      // Add game controls
+      const controls = document.createElement('div');
+      controls.className = 'memory-controls';
+      controls.innerHTML = `
+        <button class="btn restart-btn">Restart Game</button>
+        <div class="score">Matches: <span>0</span>/${this.symbols.length}</div>
+      `;
+      gameContainer.parentElement.appendChild(controls);
+
+      // Add event listener for restart button
+      document.querySelector('.restart-btn').addEventListener('click', () => {
+        this.setupGame();
       });
     }
 
+    createCard(symbol, index) {
+      const card = document.createElement('div');
+      card.className = 'memory-card';
+      card.dataset.index = index;
+      card.dataset.symbol = symbol;
+      card.innerHTML = `
+        <div class="card-inner">
+          <div class="card-front">?</div>
+          <div class="card-back">${symbol}</div>
+        </div>
+      `;
+
+      card.addEventListener('click', () => this.flipCard(card));
+      return card;
+    }
+
     flipCard(card) {
-      if (this.flippedCards.length === 2) return;
-      if (!card.classList.contains('flipped')) {
-        card.classList.add('flipped');
-        card.textContent = card.dataset.value;
-        this.flippedCards.push(card);
-        
-        if (this.flippedCards.length === 2) {
-          this.checkMatch();
-        }
+      if (
+        this.isLocked || 
+        this.flippedCards.length >= 2 || 
+        this.flippedCards.includes(card) ||
+        card.classList.contains('matched')
+      ) return;
+
+      card.classList.add('flipped');
+      this.flippedCards.push(card);
+
+      if (this.flippedCards.length === 2) {
+        this.isLocked = true;
+        this.checkMatch();
       }
     }
 
     checkMatch() {
       const [card1, card2] = this.flippedCards;
-      if (card1.dataset.value === card2.dataset.value) {
-        this.matchedPairs++;
-        this.flippedCards = [];
-        if (this.matchedPairs === 8) {
-          setTimeout(() => alert('Congratulations! You won!'), 500);
-        }
+      const match = card1.dataset.symbol === card2.dataset.symbol;
+
+      if (match) {
+        this.handleMatch(card1, card2);
       } else {
-        setTimeout(() => {
-          card1.classList.remove('flipped');
-          card2.classList.remove('flipped');
-          card1.textContent = '';
-          card2.textContent = '';
-          this.flippedCards = [];
-        }, 1000);
+        this.handleMismatch(card1, card2);
       }
+    }
+
+    handleMatch(card1, card2) {
+      card1.classList.add('matched');
+      card2.classList.add('matched');
+      this.matchedPairs++;
+      this.updateScore();
+      
+      this.flippedCards = [];
+      this.isLocked = false;
+
+      if (this.matchedPairs === this.symbols.length) {
+        this.handleGameComplete();
+      }
+    }
+
+    handleMismatch(card1, card2) {
+      setTimeout(() => {
+        card1.classList.remove('flipped');
+        card2.classList.remove('flipped');
+        this.flippedCards = [];
+        this.isLocked = false;
+      }, 1000);
+    }
+
+    handleGameComplete() {
+      setTimeout(() => {
+        const message = document.createElement('div');
+        message.className = 'game-complete';
+        message.innerHTML = `
+          <h3>Congratulations! 🎉</h3>
+          <p>You've matched all the pairs!</p>
+          <button class="btn play-again">Play Again</button>
+        `;
+        
+        document.querySelector('.memory-game').appendChild(message);
+        message.querySelector('.play-again').addEventListener('click', () => {
+          this.setupGame();
+        });
+      }, 500);
+    }
+
+    updateScore() {
+      const scoreElement = document.querySelector('.score span');
+      if (scoreElement) {
+        scoreElement.textContent = this.matchedPairs;
+      }
+    }
+
+    shuffleArray(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+      return array;
     }
   }
 
@@ -381,3 +470,118 @@ document.getElementById('logSymptoms').addEventListener('click', () => {
       // Add proper error handling/reporting
     }
   }
+
+  class Dashboard {
+    constructor() {
+      this.tips = [
+        {
+          title: "Stay Hydrated",
+          image: "assets/images/hydration.jpg",
+          details: [
+            "Drink 8-10 glasses of water daily",
+            "Avoid caffeine and alcohol",
+            "Try herbal teas like chamomile",
+            "Eat water-rich fruits and vegetables"
+          ]
+        },
+        {
+          title: "Exercise",
+          image: "assets/images/exercise.jpg",
+          details: [
+            "Light yoga or stretching",
+            "30 minutes of walking",
+            "Swimming or low-impact activities",
+            "Regular exercise reduces cramps"
+          ]
+        },
+        {
+          title: "Heat Therapy",
+          image: "assets/images/heat.jpg",
+          details: [
+            "Use a heating pad",
+            "Take warm baths",
+            "Apply heat for 15-20 minutes",
+            "Try heated patches"
+          ]
+        },
+        {
+          title: "Nutrition",
+          image: "assets/images/nutrition.jpg",
+          details: [
+            "Increase iron-rich foods",
+            "Add omega-3 fatty acids",
+            "Reduce salt intake",
+            "Eat small, frequent meals"
+          ]
+        }
+      ];
+
+      this.activeIndex = null;
+      this.init();
+    }
+
+    init() {
+      this.renderTipCircles();
+      this.setupEventListeners();
+    }
+
+    renderTipCircles() {
+      const container = document.querySelector('.tips-circles');
+      if (!container) return;
+
+      container.innerHTML = this.tips.map((tip, index) => `
+        <div class="tip-circle" data-index="${index}">
+          ${tip.title}
+        </div>
+      `).join('');
+    }
+
+    setupEventListeners() {
+      document.querySelectorAll('.tip-circle').forEach(circle => {
+        circle.addEventListener('click', (e) => {
+          const index = parseInt(e.currentTarget.dataset.index);
+          this.handleClick(index);
+        });
+      });
+    }
+
+    handleClick(index) {
+      const circles = document.querySelectorAll('.tip-circle');
+      const detailsContainer = document.querySelector('.tip-details');
+
+      if (this.activeIndex === index) {
+        // Deactivate
+        this.activeIndex = null;
+        circles[index].classList.remove('active');
+        detailsContainer.classList.remove('show');
+      } else {
+        // Activate
+        if (this.activeIndex !== null) {
+          circles[this.activeIndex].classList.remove('active');
+        }
+        this.activeIndex = index;
+        circles[index].classList.add('active');
+        this.showTipDetails(index);
+      }
+    }
+
+    showTipDetails(index) {
+      const tip = this.tips[index];
+      const detailsContainer = document.querySelector('.tip-details');
+      
+      detailsContainer.innerHTML = `
+        <img src="${tip.image}" alt="${tip.title}">
+        <h3>${tip.title}</h3>
+        <ul>
+          ${tip.details.map(detail => `<li>${detail}</li>`).join('')}
+        </ul>
+      `;
+      
+      detailsContainer.classList.add('show');
+    }
+  }
+
+  // Initialize Dashboard when DOM is loaded
+  document.addEventListener('DOMContentLoaded', () => {
+    const dashboard = new Dashboard();
+  });
