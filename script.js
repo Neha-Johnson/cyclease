@@ -798,3 +798,25 @@ class FAQSection {
 document.addEventListener('DOMContentLoaded', () => {
   const faqSection = new FAQSection();
 });
+
+// Modal Elements
+const authBtn = document.getElementById('authBtn');
+const authModal = document.getElementById('authModal');
+const closeBtn = document.querySelector('.close-btn');
+
+// Open Modal on Button Click
+authBtn.addEventListener('click', () => {
+  authModal.style.display = 'block';
+});
+
+// Close Modal on Close Button Click
+closeBtn.addEventListener('click', () => {
+  authModal.style.display = 'none';
+});
+
+// Close Modal if Clicked Outside the Modal Content
+window.addEventListener('click', (event) => {
+  if (event.target === authModal) {
+    authModal.style.display = 'none';
+  }
+});
