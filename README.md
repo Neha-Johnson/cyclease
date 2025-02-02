@@ -25,10 +25,9 @@
 ## Technical Details
 ### Technologies/Components Used
 For Software:
-- [HTML]
-- [Frameworks use]
-- [Libraries used]
-- [Tools used]
+- [HTML,JAVASCRIPT,CSS]
+- [VSCODE]
+- [CUSOR]
 
 ### Implementation
 For Software:
