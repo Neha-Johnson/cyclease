@@ -1,4 +1,4 @@
-# CYCLEASE 🎯
+# CycleEase 🎯
 
 
 ## Basic Details
@@ -14,10 +14,10 @@
 [mention your project hosted project link here]
 
 ### Project Description
-Cyclease is a supportive platform designed to help women manage period discomfort with ease. It provides essential self-care tips for cramps and PMS, including hydration, exercise, heat therapy, and nutrition advice. The website also features mini-games to help relax the mind and reduce stress. By combining wellness guidance with interactive elements, Cyclease aims to make periods more comfortable and manageable
+CycleEase is a supportive platform designed to help women manage period discomfort with ease. It provides essential self-care tips for cramps and PMS, including hydration, exercise, heat therapy, and nutrition advice. The website also features mini-games to help relax the mind and reduce stress. By combining wellness guidance with interactive elements, Cyclease aims to make periods more comfortable and manageable
 
 ### The Problem statement
-Many women experience cramps, PMS, and stress during menstruation but struggle to find simple, effective self-care solutions. Cyclease addresses this by providing essential tips on hydration, exercise, heat therapy, and nutrition, along with mini-games to help relax the mind. This platform offers a holistic approach to easing period discomfort and improving overall well-being.
+Many women experience cramps, PMS, and stress during menstruation but struggle to find simple, effective self-care solutions. CycleEase addresses this by providing essential tips on hydration, exercise, heat therapy, and nutrition, along with mini-games to help relax the mind. This platform offers a holistic approach to easing period discomfort and improving overall well-being.
 
 ### The Solution
 We built Cyclease using HTML for structure, CSS for style, and JavaScript for interactivity. Together, they created a fun, engaging platform to help women manage period discomfort with tips, relaxation, and mini-games—all in one neat package!
