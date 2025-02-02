@@ -20,7 +20,7 @@ CycleEase is a supportive platform designed to help women manage period discomfo
 Many women experience cramps, PMS, and stress during menstruation but struggle to find simple, effective self-care solutions. CycleEase addresses this by providing essential tips on hydration, exercise, heat therapy, and nutrition, along with mini-games to help relax the mind. This platform offers a holistic approach to easing period discomfort and improving overall well-being.
 
 ### The Solution
-We built Cyclease using HTML for structure, CSS for style, and JavaScript for interactivity. Together, they created a fun, engaging platform to help women manage period discomfort with tips, relaxation, and mini-games—all in one neat package!
+We built CycleEase using HTML for structure, CSS for style, and JavaScript for interactivity. Together, they created a fun, engaging platform to help women manage period discomfort with tips, relaxation, and mini-games—all in one neat package!
 
 ## Technical Details
 ### Technologies/Components Used
