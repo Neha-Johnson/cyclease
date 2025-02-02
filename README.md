@@ -1,14 +1,14 @@
-# [Project Name] 🎯
+# [CYCLEASE] 🎯
 
 
 ## Basic Details
-### Team Name: [Name]
+### Team Name: [THINKER]
 
 
 ### Team Members
-- Member 1: [Name] - [College]
-- Member 2: [Name] - [College]
-- Member 3: [Name] - [College]
+- Member 1: [NEHA PAULSON] - [SAHRDAYA COLLEGE OF ENGINEERING AND TECHNOLOGY]
+- Member 2: [NEHA JOHNSON] - [SAHRDAYA COLLEGE OF ENGINEERING AND TECHNOLOGY]
+- Member 3: [JOICE C JOMON] -[SAHRDAYA COLLEGE OF ENGINEERING AND TECHNOLOGY]
 
 ### Hosted Project Link
 [mention your project hosted project link here]
@@ -25,15 +25,10 @@
 ## Technical Details
 ### Technologies/Components Used
 For Software:
-- [Languages used]
-- [Frameworks used]
+- [HTML]
+- [Frameworks use]
 - [Libraries used]
 - [Tools used]
-
-For Hardware:
-- [List main components]
-- [List specifications]
-- [List tools required]
 
 ### Implementation
 For Software:
