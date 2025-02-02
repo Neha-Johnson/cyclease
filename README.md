@@ -44,34 +44,19 @@ For Software:
 ![Screenshot1](CY1.png)
 *HOME PAGE*
 
-![Screenshot2](Add screenshot 2 here with proper name)
-*Add caption explaining what this shows*
+![image](https://github.com/user-attachments/assets/54877e1a-29d9-4a24-8d5e-437499f2e8a6)
 
-![Screenshot3](Add screenshot 3 here with proper name)
-*Add caption explaining what this shows*
+![image](https://github.com/user-attachments/assets/75238398-85c2-4978-b3ca-986205222d91)
 
-# Diagrams
-![Workflow](Add your workflow/architecture diagram here)
-*Add caption explaining your workflow*
+
 
 
 # Build Photos
-![Team](Add photo of your team here)
+![WhatsApp Image 2025-02-02 at 10 36 20_60c26f15](https://github.com/user-attachments/assets/85773729-b189-48e7-8266-2d4b9fe5fdc5)
 
 
-![Components](Add photo of your components here)
-*List out all components shown*
 
-![Build](Add photos of build process here)
-*Explain the build steps*
 
-![Final](Add photo of final product here)
-*Explain the final build*
-
-### Project Demo
-# Video
-[Add your demo video link here]
-*Explain what the video demonstrates*
 
 # Additional Demos
 [Add any extra demo materials/links]
