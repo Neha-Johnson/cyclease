@@ -22,7 +22,7 @@
     </nav>
   </header>
 
-  <!-- hero section -->
+  <!-- Hero Section -->
   <section class="hero">
     <video id="heroVideo" autoplay muted loop playsinline>
       <source src="./videos/girl_video.mp4" type="video/mp4">
@@ -104,25 +104,23 @@
   </section>
 
   <!-- Tips Section -->
-<!-- Replace the existing tips section in index.html with this: -->
-<section id="tips" class="tips">
-  <h2>Tips for Cramps & PMS</h2>
-  <div class="faq-container">
-    <div class="faq-category">
-      <h3>For Cramps</h3>
-      <div class="faq-list" id="crampsFAQ">
-        <!-- FAQ items will be added by JavaScript -->
+  <section id="tips" class="tips">
+    <h2>Tips for Cramps & PMS</h2>
+    <div class="faq-container">
+      <div class="faq-category">
+        <h3>For Cramps</h3>
+        <div class="faq-list" id="crampsFAQ">
+          <!-- FAQ items will be added by JavaScript -->
+        </div>
+      </div>
+      <div class="faq-category">
+        <h3>For PMS (Premenstrual Syndrome)</h3>
+        <div class="faq-list" id="pmsFAQ">
+          <!-- FAQ items will be added by JavaScript -->
+        </div>
       </div>
     </div>
-    
-    <div class="faq-category">
-      <h3>For PMS (Premenstrual Syndrome)</h3>
-      <div class="faq-list" id="pmsFAQ">
-        <!-- FAQ items will be added by JavaScript -->
-      </div>
-    </div>
-  </div>
-</section>
+  </section>
 
   <!-- Community Section -->
   <section id="community" class="community">
@@ -131,11 +129,30 @@
     <button id="joinCommunity">Join the Community</button>
   </section>
 
+  <!-- Authentication Section -->
+  <section id="signup" class="auth-section">
+    <h2>Sign Up</h2>
+    <form id="signupForm">
+      <input type="email" id="signupEmail" placeholder="Email" required />
+      <input type="password" id="signupPassword" placeholder="Password" required />
+      <button type="submit" class="btn">Sign Up</button>
+    </form>
+
+    <h2>Log In</h2>
+    <form id="loginForm">
+      <input type="email" id="loginEmail" placeholder="Email" required />
+      <input type="password" id="loginPassword" placeholder="Password" required />
+      <button type="submit" class="btn">Log In</button>
+    </form>
+
+    <button id="logoutBtn" class="btn" style="display: none;">Log Out</button>
+  </section>
+
   <!-- Footer -->
   <footer>
     <p>&copy; 2023 CycleEase. All rights reserved.</p>
   </footer>
 
-  <script src="script.js"></script>
+  <script type="module" src="script.js"></script>
 </body>
 </html>

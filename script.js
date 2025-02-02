@@ -1,3 +1,79 @@
+// Import Firebase SDK modules
+import { initializeApp } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-app.js";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js";
+import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-analytics.js";
+
+// Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyBYy5Vb9oG-2wQwiHR-hViUrbRa0oTRMQ8",
+  authDomain: "cyclease-a1471.firebaseapp.com",
+  projectId: "cyclease-a1471",
+  storageBucket: "cyclease-a1471.firebasestorage.app",
+  messagingSenderId: "844242131474",
+  appId: "1:844242131474:web:fdc9759ea2ae91ae6d56cb",
+  measurementId: "G-T17X0M6JPG"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+const auth = getAuth(app);
+
+// Authentication Logic
+document.getElementById('signupForm').addEventListener('submit', (e) => {
+  e.preventDefault();
+  const email = document.getElementById('signupEmail').value;
+  const password = document.getElementById('signupPassword').value;
+
+  createUserWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      alert('Sign-up successful!');
+      document.getElementById('signupForm').reset();
+    })
+    .catch((error) => {
+      alert(`Error: ${error.message}`);
+    });
+});
+
+document.getElementById('loginForm').addEventListener('submit', (e) => {
+  e.preventDefault();
+  const email = document.getElementById('loginEmail').value;
+  const password = document.getElementById('loginPassword').value;
+
+  signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      alert('Logged in successfully!');
+      document.getElementById('loginForm').reset();
+      document.getElementById('logoutBtn').style.display = 'block';
+    })
+    .catch((error) => {
+      alert(`Error: ${error.message}`);
+    });
+});
+
+document.getElementById('logoutBtn').addEventListener('click', () => {
+  signOut(auth)
+    .then(() => {
+      alert('Logged out successfully!');
+      document.getElementById('logoutBtn').style.display = 'none';
+    })
+    .catch((error) => {
+      alert(`Error: ${error.message}`);
+    });
+});
+
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    console.log('User logged in:', user.email);
+    document.getElementById('logoutBtn').style.display = 'block';
+  } else {
+    console.log('No user logged in');
+    document.getElementById('logoutBtn').style.display = 'none';
+  }
+});
+
+
+
 // Example: Add interactivity to buttons
 document.getElementById('logSymptoms').addEventListener('click', () => {
   alert('Log your symptoms here!');
