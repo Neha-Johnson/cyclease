@@ -27,7 +27,7 @@
 For Software:
 - [HTML,JAVASCRIPT,CSS]
 - [VSCODE]
-- [CUSOR]
+- [CURSOR]
 
 ### Implementation
 For Software:
@@ -42,7 +42,7 @@ For Software:
 
 # Screenshots (Add at least 3)
 ![Screenshot1](CY1.png)
-*Add caption explaining what this shows*
+*HOME PAGE*
 
 ![Screenshot2](Add screenshot 2 here with proper name)
 *Add caption explaining what this shows*
