@@ -642,3 +642,90 @@ footer {
   position: absolute;
   left: 0;
 }
+
+/* Add these styles to styles.css */
+
+.faq-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.faq-category {
+  margin-bottom: 3rem;
+  background: white;
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: var(--shadow);
+}
+
+.faq-category h3 {
+  color: var(--dark-accent);
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+  text-align: left;
+}
+
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.faq-item {
+  border-radius: 10px;
+  overflow: hidden;
+  background: #FFF5F5;
+  transition: all 0.3s ease;
+}
+
+.faq-question {
+  padding: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  font-weight: 500;
+  color: var(--text-dark);
+  background: rgba(255, 205, 178, 0.2);
+  transition: background 0.3s ease;
+}
+
+.faq-question:hover {
+  background: rgba(255, 205, 178, 0.4);
+}
+
+.faq-question .icon {
+  transition: transform 0.3s ease;
+}
+
+.faq-item.active .icon {
+  transform: rotate(180deg);
+}
+
+.faq-answer {
+  padding: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  background: white;
+}
+
+.faq-item.active .faq-answer {
+  padding: 1.5rem;
+  max-height: 500px;
+}
+
+@media screen and (max-width: 768px) {
+  .faq-container {
+    padding: 1rem;
+  }
+  
+  .faq-category {
+    padding: 1rem;
+  }
+  
+  .faq-question {
+    padding: 1rem;
+  }
+}
