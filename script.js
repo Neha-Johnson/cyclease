@@ -819,4 +819,8 @@ window.addEventListener('click', (event) => {
   if (event.target === authModal) {
     authModal.style.display = 'none';
   }
+<<<<<<< HEAD
 });
+=======
+});
+>>>>>>> c3201c5e0ed1594e5ae9da304069c49367096db4
